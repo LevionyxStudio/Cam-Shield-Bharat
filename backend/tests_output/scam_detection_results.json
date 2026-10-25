@@ -1,0 +1,316 @@
+[
+  {
+    "id": "1_bank_otp",
+    "title": "Bank Account Suspension + OTP Request",
+    "status_code": 200,
+    "latency_s": 16.59,
+    "data": {
+      "id": "c5b7756a-6141-4bf7-ba1b-909c0815f247",
+      "scam_type": "Phishing",
+      "risk_score": 75,
+      "risk_level": "HIGH",
+      "confidence": 0.85,
+      "summary": "Suspicious message from an unverified source claiming to suspend a bank account due to KYC issues and demanding immediate OTP.",
+      "explanation": "The text is suspicious as it comes from an unknown sender, claims suspension of the recipient's HDFC bank account without proper verification (KYC), and demands an urgent action (sending an OTP). This type of message often involves phishing attempts. The urgency and lack of context make this a high-risk situation.",
+      "red_flags": [
+        {
+          "indicator": "untrusted_source",
+          "description": "The message is from an unknown sender, indicating a potential scam.",
+          "severity": "high"
+        },
+        {
+          "indicator": "KYC_suspension_claim",
+          "description": "The claim of suspension due to unverified KYC suggests the message may be phishing or fraudulent.",
+          "severity": "medium"
+        }
+      ],
+      "recommended_actions": [
+        "Verify your account details before taking any action and contact HDFC directly for confirmation.",
+        "Do not send OTPs unless you initiated the request."
+      ],
+      "detected_entities": [],
+      "score_breakdown": [
+        {
+          "signal": "Urgent Payment / Money Request",
+          "points": 20,
+          "description": "The message demands urgent money transfer."
+        },
+        {
+          "signal": "OTP / PIN / Password Request",
+          "points": 20,
+          "description": "The message asks for sensitive credentials like OTP, PIN, or passwords."
+        },
+        {
+          "signal": "Fear / Psychological Coercion",
+          "points": 15,
+          "description": "The message uses fear, secrecy, urgency, or coercion to manipulate the victim."
+        },
+        {
+          "signal": "Bank / KYC Impersonation",
+          "points": 20,
+          "description": "The message impersonates a bank or financial institution."
+        }
+      ],
+      "input_type": "sms",
+      "input_text": "Your HDFC bank account has been suspended due to unverified KYC. Send your 6-digit OTP immediately to unlock your account.",
+      "ai_provider": "ollama",
+      "verdict": "suspicious",
+      "evidence": [
+        "Suspicious source",
+        "Unverified KYC suspension claim",
+        "Urgent request for OTP"
+      ],
+      "model_name": "qwen2.5:1.5b",
+      "language": "en",
+      "fallback_used": false,
+      "fallback_reason": null,
+      "created_at": "2026-10-24T16:24:33.231477+00:00",
+      "disclaimer": "AI-generated risk assessment. Verify critical decisions through official channels."
+    }
+  },
+  {
+    "id": "2_kyc_link",
+    "title": "Suspicious KYC Update with Phishing Link",
+    "status_code": 200,
+    "latency_s": 9.96,
+    "data": {
+      "id": "6783bee5-47e8-444d-ad00-43d957d31f01",
+      "scam_type": "Phishing",
+      "risk_score": 85,
+      "risk_level": "CRITICAL",
+      "confidence": 0.92,
+      "summary": "The message is a phishing attempt to trick the user into updating their SBI NetBanking credentials.",
+      "explanation": "It contains an urgent request for immediate action (visit URL) and uses a generic bank name ('SBI') in combination with a specific product ('NetBanking'), which are common tactics of scammers. The link provided is also suspicious as it redirects to 'verify' without any indication that the site is legitimate.",
+      "red_flags": [
+        {
+          "indicator": "sbi-kyc-update-portal.xyz",
+          "description": "Suspicious URL with generic bank name and product mention",
+          "severity": "high"
+        },
+        {
+          "indicator": "verify",
+          "description": "URL contains 'verify' which is a common tactic in phishing scams to trick users into clicking on malicious links.",
+          "severity": "medium"
+        }
+      ],
+      "recommended_actions": [
+        "Do not click the link and verify your credentials through official SBI channels."
+      ],
+      "detected_entities": [],
+      "score_breakdown": [
+        {
+          "signal": "Urgent Payment / Money Request",
+          "points": 20,
+          "description": "The message demands urgent money transfer."
+        },
+        {
+          "signal": "Fear / Psychological Coercion",
+          "points": 15,
+          "description": "The message uses fear, secrecy, urgency, or coercion to manipulate the victim."
+        },
+        {
+          "signal": "Suspicious Link / URL",
+          "points": 15,
+          "description": "The message contains suspicious or potentially malicious links."
+        },
+        {
+          "signal": "Bank / KYC Impersonation",
+          "points": 20,
+          "description": "The message impersonates a bank or financial institution."
+        }
+      ],
+      "input_type": "sms",
+      "input_text": "Dear customer, your SBI NetBanking will expire today. Update your PAN card and KYC immediately by visiting http://sbi-kyc-update-portal.xyz/verify",
+      "ai_provider": "ollama",
+      "verdict": "likely_scam",
+      "evidence": [
+        "Dear customer, your SBI NetBanking will expire today."
+      ],
+      "model_name": "qwen2.5:1.5b",
+      "language": "en",
+      "fallback_used": false,
+      "fallback_reason": null,
+      "created_at": "2026-10-24T16:24:43.192475+00:00",
+      "disclaimer": "AI-generated risk assessment. Verify critical decisions through official channels."
+    }
+  },
+  {
+    "id": "3_lottery_fee",
+    "title": "Fake Prize / Lottery with Advance Payment",
+    "status_code": 200,
+    "latency_s": 15.0,
+    "data": {
+      "id": "753da769-f9ba-4f04-bf52-b66e00d07348",
+      "scam_type": "Lottery / Prize Scam",
+      "risk_score": 75,
+      "risk_level": "HIGH",
+      "confidence": 0.85,
+      "summary": "This message claims a lottery win and requires an upfront fee to claim the prize, which is typical of Lottery/Prize scams.",
+      "explanation": "The text mentions 'Congratulations! You have won Rs 25,00,000 in the KBC Lucky Draw 2026' followed by instructions for a registration fee. This combination strongly suggests it's an attempt to scam money through lottery or prize claims with upfront fees.",
+      "red_flags": [
+        {
+          "indicator": "registration_fee",
+          "description": "The message includes an upfront fee requirement for claiming a lottery win.",
+          "severity": "high"
+        },
+        {
+          "indicator": "UPI_ID",
+          "description": "UPI ID is mentioned, which could be used to transfer money without the recipient's knowledge.",
+          "severity": "medium"
+        }
+      ],
+      "recommended_actions": [
+        "Do not deposit any fees or provide personal information as requested in this message."
+      ],
+      "detected_entities": [],
+      "score_breakdown": [
+        {
+          "signal": "Urgent Payment / Money Request",
+          "points": 20,
+          "description": "The message demands urgent money transfer."
+        },
+        {
+          "signal": "Prepaid Task / Job Fraud",
+          "points": 20,
+          "description": "The message describes a task/job scam requiring upfront payment."
+        },
+        {
+          "signal": "Lottery / Prize / Reward Scam",
+          "points": 18,
+          "description": "The message claims the user has won a lottery or prize."
+        },
+        {
+          "signal": "UPI / Payment Fraud",
+          "points": 18,
+          "description": "The message involves a UPI or digital payment scam."
+        }
+      ],
+      "input_type": "whatsapp",
+      "input_text": "Congratulations! You have won Rs 25,00,000 in the KBC Lucky Draw 2026. To claim your prize money, deposit Rs 5,500 registration fee to UPI ID kbcwinner@okaxis.",
+      "ai_provider": "ollama",
+      "verdict": "suspicious",
+      "evidence": [
+        "Congratulations! You have won Rs 25,00,000 in the KBC Lucky Draw 2026",
+        "To claim your prize money, deposit Rs 5,500 registration fee to UPI ID kbcwinner@okaxis"
+      ],
+      "model_name": "qwen2.5:1.5b",
+      "language": "en",
+      "fallback_used": false,
+      "fallback_reason": null,
+      "created_at": "2026-10-24T16:24:58.189086+00:00",
+      "disclaimer": "AI-generated risk assessment. Verify critical decisions through official channels."
+    }
+  },
+  {
+    "id": "4_harmless_dinner",
+    "title": "Normal Harmless Message",
+    "status_code": 200,
+    "latency_s": 11.01,
+    "data": {
+      "id": "a82f3d23-ead6-4a9e-b09d-eb02c6bbf32f",
+      "scam_type": "Legitimate",
+      "risk_score": 0,
+      "risk_level": "LOW",
+      "confidence": 0.99,
+      "summary": "The message is a friendly greeting from the office, indicating safety and normalcy.",
+      "explanation": "No suspicious indicators or red flags were found in this SMS.",
+      "red_flags": [],
+      "recommended_actions": [
+        "No action needed. This communication shows no fraudulent indicators."
+      ],
+      "detected_entities": [],
+      "score_breakdown": [],
+      "input_type": "sms",
+      "input_text": "Hi Mom, I reached the office safely. Let's have dinner together tonight around 8 PM.",
+      "ai_provider": "ollama",
+      "verdict": "likely_legitimate",
+      "evidence": [],
+      "model_name": "qwen2.5:1.5b",
+      "language": "en",
+      "fallback_used": false,
+      "fallback_reason": null,
+      "created_at": "2026-10-24T16:25:09.177268+00:00",
+      "disclaimer": "AI-generated risk assessment. Verify critical decisions through official channels."
+    }
+  },
+  {
+    "id": "5_hindi_hinglish",
+    "title": "Hinglish Account Freeze Scam",
+    "status_code": 200,
+    "latency_s": 7.33,
+    "data": {
+      "id": "4b3c699d-4047-4434-8116-c8d7c12ced5f",
+      "scam_type": "Phishing",
+      "risk_score": 75,
+      "risk_level": "HIGH",
+      "confidence": 0.85,
+      "summary": "Aapka HDFC bank account block ho gaya hai, aur customer care ko apna 6-digit OTP share karein.",
+      "explanation": "Unusual SMS asking for a specific OTP from the bank's customer support is indicative of Phishing or Scam. The urgency and direct request to provide personal information (OTP) are red flags.",
+      "red_flags": [],
+      "recommended_actions": [
+        "Do NOT transfer any money or share OTP / PIN credentials.",
+        "Verify the sender's identity through official authorized contact details.",
+        "Report suspected fraud to the National Cyber Crime Helpline at 1930 or cybercrime.gov.in."
+      ],
+      "detected_entities": [],
+      "score_breakdown": [
+        {
+          "signal": "OTP / PIN / Password Request",
+          "points": 20,
+          "description": "The message asks for sensitive credentials like OTP, PIN, or passwords."
+        },
+        {
+          "signal": "Bank / KYC Impersonation",
+          "points": 20,
+          "description": "The message impersonates a bank or financial institution."
+        }
+      ],
+      "input_type": "sms",
+      "input_text": "Aapka HDFC bank account block ho gaya hai. Turant unblock karne ke liye customer care ko apna 6-digit OTP share karein.",
+      "ai_provider": "ollama",
+      "verdict": "suspicious",
+      "evidence": [],
+      "model_name": "qwen2.5:1.5b",
+      "language": "hinglish",
+      "fallback_used": false,
+      "fallback_reason": null,
+      "created_at": "2026-10-24T16:25:16.528629+00:00",
+      "disclaimer": "AI-generated risk assessment. Verify critical decisions through official channels."
+    }
+  },
+  {
+    "id": "6_no_obvious_scam",
+    "title": "Message with No Obvious Scam Indicators",
+    "status_code": 200,
+    "latency_s": 12.41,
+    "data": {
+      "id": "32d6da94-38be-47b9-91f8-3cd60138bd6e",
+      "scam_type": "Legitimate",
+      "risk_score": 0,
+      "risk_level": "LOW",
+      "confidence": 0.85,
+      "summary": "The message is asking for a presentation slide, which could be part of a job scam.",
+      "explanation": "This request seems unusual and impersonal compared to legitimate communication. It's likely an attempt at convincing the recipient into providing sensitive information or money upfront.",
+      "red_flags": [],
+      "recommended_actions": [
+        "No action needed. This communication shows no fraudulent indicators."
+      ],
+      "detected_entities": [],
+      "score_breakdown": [],
+      "input_type": "text",
+      "input_text": "Hi Rahul, can you share the presentation slides from yesterday's team meeting?",
+      "ai_provider": "ollama",
+      "verdict": "likely_legitimate",
+      "evidence": [
+        "Requesting slides from a team meeting without any context",
+        "No mention of previous meetings, projects, or work-related topics"
+      ],
+      "model_name": "qwen2.5:1.5b",
+      "language": "en",
+      "fallback_used": false,
+      "fallback_reason": null,
+      "created_at": "2026-10-24T16:25:28.942102+00:00",
+      "disclaimer": "AI-generated risk assessment. Verify critical decisions through official channels."
+    }
+  }
+]
